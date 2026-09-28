@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-BdcNfoL0mg8IcgG6u4NAULy+K9HJDwhx1sFjYJ7m7iE='; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<title>Volviendo a Ahorrapp</title>
+<style>
+  :root { color-scheme: light dark; --bg: #f9f9f7; --ink: #0b0b0b; --muted: #52514e; --accent: #2a78d6; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #0d0d0d; --ink: #ffffff; --muted: #c3c2b7; --accent: #3987e5; } }
+  body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: var(--bg); color: var(--ink);
+         font: 17px/1.4 system-ui, -apple-system, sans-serif; text-align: center; padding: 0 16px; }
+  p { color: var(--muted); }
+  a { display: inline-block; margin-top: 12px; padding: 12px 20px; border-radius: 12px; background: var(--accent);
+      color: #fff; text-decoration: none; font-weight: 600; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Volviendo a Ahorrapp…</h1>
+  <p>Si no vuelves automáticamente, pulsa el botón.</p>
+  <a id="open" href="ahorrapp://callback">Volver a Ahorrapp</a>
+</main>
+<!-- Static page: it only passes the one-time code from the bank back to the app.
+     The code is useless without the private key that lives on your iPhone. -->
+<script>var q=window.location.search;var t="ahorrapp://callback"+q;history.replaceState(null,"",window.location.pathname);document.getElementById("open").href=t;window.location.replace(t);</script>
+</body>
+</html>
